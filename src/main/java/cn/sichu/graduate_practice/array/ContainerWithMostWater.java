@@ -8,6 +8,14 @@ package cn.sichu.graduate_practice.array;
  * @date 2022/03/16
  */
 public class ContainerWithMostWater {
+    /**
+     * Time Complexity: O(n), 双指针最多遍历一次数组
+     * <p>
+     * Space Complexity: O(1)
+     * 
+     * @param height
+     * @return
+     */
     public int maxArea(int[] height) {
         if (height != null) {
             int left = 0;
