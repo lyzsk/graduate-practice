@@ -23,6 +23,10 @@ public class RotateImage {
      * <li>当 n 为偶数时，需要枚举 n<sup>2</sup>/4 = (n/2) * (n/2) 个位置，</li>
      * <li>当 n 为奇数时，因为矩阵中心位置旋转后不变，需要枚举 (n<sup>2</sup>-1)/4 = ((n-1)/2) * ((n+1)/2) 个位置</li>
      * </ul>
+     * <p>
+     * Time: O(n<sup>2</sup>) = O(n/2 * ((n+1)/2))
+     * <p>
+     * Space: O(1)
      * 
      * @param matrix
      */
