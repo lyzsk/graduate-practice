@@ -1,6 +1,7 @@
 package cn.sichu.graduate_practice.dp;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
@@ -39,11 +40,14 @@ public class LongestPalindromicSubstringTest {
 
     @Test
     public void test() {
-        // try {
-        // assertThat(lpss.longestPalindrome(input1), anyOf(output1, output1another));
-        // } catch (Exception e) {
-        // fail("failed" + e.getMessage());
-        // }
+
+        String s = lpss.longestPalindrome(input1);
+
+        try {
+            assertTrue(s.matches("(bab|aba)"));
+        } catch (Exception e) {
+            fail("failed" + e.getMessage());
+        }
 
         try {
             assertEquals(output2, lpss.longestPalindrome(input2));
