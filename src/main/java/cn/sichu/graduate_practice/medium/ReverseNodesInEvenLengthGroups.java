@@ -17,13 +17,13 @@ public class ReverseNodesInEvenLengthGroups {
 
         for (int i = 1; flag == 0; i++) {
             int count = 0;
-            ListNode reversePreHead = prehead;
-            ListNode reverseRightNode = null;
+            ListNode reversePre = prehead;
+            ListNode reverseRight = prehead;
 
             while (cur != null && count < i) {
-                reverseRightNode = cur;
-                prehead = prehead.next;
+                reverseRight = reverseRight.next;
                 cur = cur.next;
+                prehead = prehead.next;
                 ++count;
 
                 if (cur == null) {
@@ -32,7 +32,7 @@ public class ReverseNodesInEvenLengthGroups {
             }
 
             if (count % 2 == 0) {
-                prehead = reverse(reversePreHead, reverseRightNode);
+                prehead = reverse(reversePre, reverseRight);
             }
         }
 
