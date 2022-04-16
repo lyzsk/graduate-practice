@@ -12,6 +12,15 @@ import java.util.Set;
  * @date 2022/04/08
  */
 public class ContainsDuplicateII {
+    /**
+     * O(n)
+     * <p>
+     * O(n)
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
     public boolean containsNearbyDuplicateSolution1(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
@@ -25,14 +34,34 @@ public class ContainsDuplicateII {
         return false;
     }
 
+    /**
+     * O(n)
+     * <p>
+     * O(k0
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
     public boolean containsNearbyDuplicateSolution2(int[] nums, int k) {
+        // Set<Integer> set = new HashSet<Integer>();
+        //
+        // for (int i = 0; i < nums.length; i++) {
+        // if (i > k) {
+        // set.remove(nums[i - k - 1]);
+        // }
+        // if (!set.add(nums[i])) {
+        // return true;
+        // }
+        // }
+        // return false;
         Set<Integer> set = new HashSet<Integer>();
-
-        for (int i = 0; i < nums.length; i++) {
-            if (i > k) {
-                set.remove(nums[i - k - 1]);
+        for (int left = 0, right = 0; right < nums.length; right++) {
+            if (right > k) {
+                set.remove(nums[left]);
+                ++left;
             }
-            if (!set.add(nums[i])) {
+            if (!set.add(nums[right])) {
                 return true;
             }
         }
