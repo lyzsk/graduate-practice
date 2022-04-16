@@ -37,7 +37,7 @@ public class ContainsDuplicateII {
     /**
      * O(n)
      * <p>
-     * O(k0
+     * O(k)
      * 
      * @param nums
      * @param k
