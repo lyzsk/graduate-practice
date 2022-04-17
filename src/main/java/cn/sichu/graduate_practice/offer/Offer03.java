@@ -32,6 +32,10 @@ public class Offer03 {
 
     /**
      * nums 里的所有数字都在 0～n-1 的范围内, 说明nums里元素的 索引 和 值 是一对多关系
+     * <p>
+     * O(n)
+     * <p>
+     * O(1)
      * 
      * @param nums
      * @return
