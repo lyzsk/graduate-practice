@@ -14,7 +14,7 @@ public class ReverseWordsInAString {
         return sb.toString();
     }
 
-    private void reverseEachWord(StringBuilder sb) {
+    private static void reverseEachWord(StringBuilder sb) {
         int left = 0;
         int right = 0;
 
@@ -28,7 +28,7 @@ public class ReverseWordsInAString {
         }
     }
 
-    private void reverseString(StringBuilder sb, int left, int right) {
+    private static void reverseString(StringBuilder sb, int left, int right) {
         while (left < right) {
             char tmp = sb.charAt(left);
             sb.setCharAt(left, sb.charAt(right));
@@ -38,7 +38,7 @@ public class ReverseWordsInAString {
         }
     }
 
-    private StringBuilder removeSpace(String s) {
+    private static StringBuilder removeSpace(String s) {
         int left = 0;
         int right = s.length() - 1;
 
