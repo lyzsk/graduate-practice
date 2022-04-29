@@ -26,7 +26,7 @@ public class PalindromeNumber {
      * <p>
      * O(1)
      * <p>
-     * TODO: why?
+     * 
      * 
      * @param x
      * @return
