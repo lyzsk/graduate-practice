@@ -7,11 +7,21 @@ import java.util.List;
 
 /**
  * https://leetcode-cn.com/problems/palindrome-partitioning/
+ * <p>
+ * Offer link(多一个List<List<String>> 转 String[][]) : {@link cn.sichu.graduate_practice.offerii.OfferII086}
  * 
  * @author sichu
  * @date 2022/04/07
  */
 public class PalindromePartitioning {
+    /**
+     * O(N*2<sup>N</sup>),判断每一个子串是否是回文O(n), 尝试是否可以拆分每一个位置O(2<sup>N</sup>)
+     * <p>
+     * O(2<sup>N</sup>*N)
+     * 
+     * @param s
+     * @return
+     */
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<List<String>>();
         Deque<String> path = new ArrayDeque<String>();

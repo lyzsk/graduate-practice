@@ -1,14 +1,14 @@
-package cn.sichu.graduate_practice.easy;
+package cn.sichu.graduate_practice.offerii;
 
 /**
- * https://leetcode-cn.com/problems/valid-palindrome/
+ * https://leetcode-cn.com/problems/XltzEq/
  * <p>
- * Offer link: {@link cn.sichu.graduate_practice.offerii.OfferII018}
+ * 一样:{@link cn.sichu.graduate_practice.easy.ValidPalindrome}
  * 
  * @author sichu
- * @date 2022/04/07
+ * @date 2022/04/30
  */
-public class ValidPalindrome {
+public class OfferII018 {
     public boolean isPalindrome(String s) {
         int left = 0;
         int right = s.length() - 1;
