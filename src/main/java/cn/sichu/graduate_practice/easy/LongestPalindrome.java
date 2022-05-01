@@ -25,6 +25,7 @@ public class LongestPalindrome {
 
     public int longestPalindrome(String s) {
         char[] arr = s.toCharArray();
+        // 122 - 65 + 1
         int[] count = new int[58];
         for (int i = 0; i < arr.length; i++) {
             ++count[arr[i] - 'A'];

@@ -1,25 +1,25 @@
-package cn.sichu.graduate_practice.medium;
+package cn.sichu.graduate_practice.offerii;
 
 /**
- * https://leetcode-cn.com/problems/palindromic-substrings/
+ * https://leetcode-cn.com/problems/a7VOhD/
  * <p>
- * Offer link: {@link cn.sichu.graduate_practice.offerii.OfferII020}
+ * same: {@link cn.sichu.graduate_practice.medium.PalindromicSubstrings}
  * 
  * @author sichu
- * @date 2022/04/29
+ * @date 2022/05/01
  */
-public class PalindromicSubstrings {
+public class OfferII020 {
     public int countSubstrings(String s) {
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
         int count = 0;
+
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i; j < n; j++) {
                 if (s.charAt(i) != s.charAt(j)) {
                     continue;
                 }
-
-                dp[i][j] = j - i <= 2 || dp[i + 1][j - 1];
+                dp[i][j] = j - i + 1 <= 3 || dp[i + 1][j - 1];
                 if (dp[i][j]) {
                     ++count;
                 }
@@ -50,7 +50,6 @@ public class PalindromicSubstrings {
             --left;
             ++right;
         }
-
         return count;
     }
 }
