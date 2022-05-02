@@ -1,6 +1,8 @@
 package cn.sichu.graduate_practice.medium;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,6 +22,27 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 ++right;
             }
             res = Math.max(res, right - i);
+        }
+        return res;
+    }
+
+    /**
+     * 比用 Set 快2ms
+     * 
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstringSolution2(String s) {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        int res = 0;
+
+        for (int left = 0, right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
+            if (map.containsKey(ch)) {
+                left = Math.max(left, map.get(ch) + 1);
+            }
+            map.put(ch, right);
+            res = Math.max(res, right - left + 1);
         }
         return res;
     }

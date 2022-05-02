@@ -25,22 +25,44 @@ public class QuickSort {
      * @param right
      */
     private static void quickSort(int[] nums, int left, int right) {
+        // if (left >= right) {
+        // return;
+        // }
+        // int i = left - 1;
+        // int j = right + 1;
+        // int x = nums[left];
+        // while (i < j) {
+        // while (nums[++i] < x);
+        // while (nums[--j] > x);
+        // if (i < j) {
+        // int tmp = nums[i];
+        // nums[i] = nums[j];
+        // nums[j] = tmp;
+        // }
+        // }
+        // quickSort(nums, left, j);
+        // quickSort(nums, j + 1, right);
         if (left >= right) {
             return;
         }
-        int i = left - 1;
-        int j = right + 1;
-        int x = nums[left];
+        int base = nums[left];
+        int i = left;
+        int j = right;
         while (i < j) {
-            while (nums[++i] < x);
-            while (nums[--j] > x);
-            if (i < j) {
-                int tmp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = tmp;
+            while (nums[j] >= base && i < j) {
+                --j;
             }
+            while (nums[i] <= base && i < j) {
+                ++i;
+            }
+
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
         }
-        quickSort(nums, left, j);
+        nums[left] = nums[i];
+        nums[i] = base;
+        quickSort(nums, left, i - 1);
         quickSort(nums, j + 1, right);
     }
 

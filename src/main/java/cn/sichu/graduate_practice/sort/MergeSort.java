@@ -10,13 +10,12 @@ import java.util.Arrays;
  * @date 2022/05/01
  */
 public class MergeSort {
-    private static int[] tmp = new int[100010];
-
     private static void mergeSort(int[] nums, int left, int right) {
         if (left >= right) {
             return;
         }
         int mid = (left + right) >> 1;
+        int[] tmp = new int[nums.length];
         mergeSort(nums, left, mid);
         mergeSort(nums, mid + 1, right);
 
@@ -24,11 +23,12 @@ public class MergeSort {
         int j = mid + 1;
         int k = 0;
         while (i <= mid && j <= right) {
-            if (nums[i] <= nums[j]) {
-                tmp[k++] = nums[i++];
-            } else {
-                tmp[k++] = nums[j++];
-            }
+            // if (nums[i] <= nums[j]) {
+            // tmp[k++] = nums[i++];
+            // } else {
+            // tmp[k++] = nums[j++];
+            // }
+            tmp[k++] = nums[i] <= nums[j] ? nums[i++] : nums[j++];
         }
         while (i <= mid) {
             tmp[k++] = nums[i++];
