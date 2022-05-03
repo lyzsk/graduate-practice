@@ -1,6 +1,7 @@
 package cn.sichu.graduate_practice.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -62,12 +63,15 @@ public class TopKFrequentElements {
         }
         Collections.swap(values, start, index);
 
+        // 当pivot包含的多余k个时，虽然此时左边都比pivot的大，左区间仍是乱序的，对于k而言相当于没排序
         if (k <= index - start) {
             qsort(values, start, index - 1, ret, retIndex, k);
         } else {
+            // 当pivot包含元素小于k时，起码pivot左边的都大于pivot，因此pivot左边的也大于k，这些数字可以放入结果中
             for (int i = start; i <= index; i++) {
                 ret[retIndex++] = values.get(i)[0];
             }
+            // 当pivot和起点间的个数小于k时，则从pivot到end再继续找剩下的前（k - （pivot - start + 1））大的元素
             if (k > index - start + 1) {
                 qsort(values, index + 1, end, ret, retIndex, k - (index - start + 1));
             }
@@ -75,7 +79,7 @@ public class TopKFrequentElements {
     }
 
     /**
-     * 13ms 比官方慢1ms
+     * 13ms 比官方慢1ms 但是好理解
      * 
      * @param nums
      * @param k
@@ -107,4 +111,35 @@ public class TopKFrequentElements {
         return res;
     }
 
+    /**
+     * 16ms， 用stream
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int[] topKFrequentSolution3(int[] nums, int k) {
+        Map<Integer, Integer> freq = new HashMap<Integer, Integer>();
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
+        int[] res = freq.entrySet().stream().sorted((o1, o2) -> o2.getValue() - o1.getValue()).limit(k)
+            .mapToInt(Map.Entry::getKey).toArray();
+        return res;
+    }
+
+    /**
+     * stream, 但是不用for-each, 改用Arrays.stream， 10ms 最快
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int[] topKFrequentSolution4(int[] nums, int k) {
+        Map<Integer, Integer> freq = new HashMap<Integer, Integer>();
+        Arrays.stream(nums).forEach(num -> freq.put(num, freq.getOrDefault(num, 0) + 1));
+        int[] res = freq.entrySet().stream().sorted((o1, o2) -> o2.getValue() - o1.getValue()).limit(k)
+            .mapToInt(Map.Entry::getKey).toArray();
+        return res;
+    }
 }
