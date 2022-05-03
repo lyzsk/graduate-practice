@@ -2,6 +2,8 @@ package cn.sichu.graduate_practice.easy;
 
 /**
  * https://leetcode-cn.com/problems/invert-binary-tree/
+ * <p>
+ * offer linke: {@link cn.sichu.graduate_practice.offer.Offer27}
  * 
  * @author sichu
  * @date 2022/04/03
