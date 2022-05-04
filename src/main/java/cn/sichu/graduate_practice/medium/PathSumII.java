@@ -7,6 +7,8 @@ import cn.sichu.graduate_practice.easy.TreeNode;
 
 /**
  * https://leetcode-cn.com/problems/path-sum-ii/
+ * <p>
+ * Offer: {@link cn.sichu.graduate_practice.offer.Offer34}
  * 
  * @author sichu
  * @date 2022/04/02
