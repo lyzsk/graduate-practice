@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import cn.sichu.graduate_practice.easy.ListNode;
 
 /**
- * 频率23
+ * 频率24
  * <p>
  * https://leetcode-cn.com/problems/merge-k-sorted-lists/
  * 
