@@ -18,7 +18,7 @@ public class Permutations {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Deque<Integer> path = new ArrayDeque<Integer>();
         boolean[] used = new boolean[nums.length];
-        backtrack(res, new ArrayDeque<Integer>(), nums, used, 0);
+        backtrack(res, path, nums, used, 0);
         return res;
     }
 

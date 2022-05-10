@@ -39,7 +39,7 @@ public class ReverseNodesInKGroup {
         return dummy.next;
     }
 
-    private ListNode reverse(ListNode head) {
+    private static ListNode reverse(ListNode head) {
         ListNode slow = null;
         ListNode fast = head;
 

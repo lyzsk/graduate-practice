@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public class LRUCache {
     class DeLinkedNode {
-        public int key;
-        public int value;
-        public DeLinkedNode prev;
-        public DeLinkedNode next;
+        private int key;
+        private int value;
+        private DeLinkedNode prev;
+        private DeLinkedNode next;
 
         public DeLinkedNode() {
             super();
@@ -61,8 +61,8 @@ public class LRUCache {
             addToTail(newNode);
             ++size;
             if (size > capacity) {
-                DeLinkedNode head = removeHead();
-                cache.remove(head.key);
+                DeLinkedNode headNode = removeHead();
+                cache.remove(headNode.key);
                 --size;
             }
         } else {

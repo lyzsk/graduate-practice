@@ -22,7 +22,7 @@ public class NumberOfIslands {
         return count;
     }
 
-    private void dfs(char[][] grid, int i, int j) {
+    private static void dfs(char[][] grid, int i, int j) {
         if (i < 0 || j < 0 || i > grid.length - 1 || j > grid[0].length - 1 || grid[i][j] == '0') {
             return;
         }

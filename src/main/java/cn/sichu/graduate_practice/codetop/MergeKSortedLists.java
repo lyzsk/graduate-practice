@@ -14,12 +14,12 @@ import cn.sichu.graduate_practice.easy.ListNode;
  */
 public class MergeKSortedLists {
     class Status implements Comparable<Status> {
-        public int val;
-        public ListNode ptr;
+        private int val;
+        private ListNode node;
 
-        public Status(int val, ListNode ptr) {
+        public Status(int val, ListNode node) {
             this.val = val;
-            this.ptr = ptr;
+            this.node = node;
         }
 
         public int compareTo(Status status2) {
@@ -27,7 +27,7 @@ public class MergeKSortedLists {
         }
     }
 
-    PriorityQueue<Status> queue = new PriorityQueue<Status>();
+    private PriorityQueue<Status> queue = new PriorityQueue<Status>();
 
     public ListNode mergeKLists(ListNode[] lists) {
         for (int i = 0; i < lists.length; i++) {
@@ -39,11 +39,11 @@ public class MergeKSortedLists {
         ListNode head = new ListNode();
         ListNode tail = head;
         while (!queue.isEmpty()) {
-            Status f = queue.poll();
-            tail.next = f.ptr;
+            Status status = queue.poll();
+            tail.next = status.node;
             tail = tail.next;
-            if (f.ptr.next != null) {
-                queue.add(new Status(f.ptr.next.val, f.ptr.next));
+            if (status.node.next != null) {
+                queue.add(new Status(status.node.next.val, status.node.next));
             }
         }
         return head.next;
@@ -60,7 +60,7 @@ public class MergeKSortedLists {
         return lists[n - 1];
     }
 
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
