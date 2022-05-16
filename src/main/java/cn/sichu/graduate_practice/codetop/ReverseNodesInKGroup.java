@@ -15,34 +15,31 @@ public class ReverseNodesInKGroup {
         ListNode dummy = new ListNode();
         dummy.next = head;
 
-        ListNode pre = dummy;
-        ListNode end = dummy;
-
-        while (end.next != null) {
-            for (int i = 0; i < k && end != null; i++) {
-                end = end.next;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        while (fast.next != null) {
+            for (int i = 0; i < k && fast != null; i++) {
+                fast = fast.next;
             }
-            if (end == null) {
+            if (fast == null) {
                 break;
             }
-            ListNode start = pre.next;
-            ListNode nextStart = end.next;
+            ListNode start = slow.next;
+            ListNode nextStart = fast.next;
 
-            end.next = null;
-            pre.next = reverse(start);
+            fast.next = null;
+            slow.next = reverse(start);
             start.next = nextStart;
 
-            pre = start;
-            end = pre;
+            slow = start;
+            fast = start;
         }
-
         return dummy.next;
     }
 
     private static ListNode reverse(ListNode head) {
         ListNode slow = null;
         ListNode fast = head;
-
         while (fast != null) {
             ListNode tmp = fast.next;
             fast.next = slow;

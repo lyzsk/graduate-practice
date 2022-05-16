@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * 频率34
+ * 频率33
  * <p>
  * https://leetcode.cn/problems/implement-queue-using-stacks/
  * 
@@ -45,6 +45,7 @@ public class MyQueue {
         }
     }
 }
+
 /**
  * Your MyQueue object will be instantiated and called as such:
  * <p>

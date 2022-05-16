@@ -23,13 +23,12 @@ public class LRUCache {
         }
 
         public DeLinkedNode(int key, int value) {
-            super();
             this.key = key;
             this.value = value;
         }
     }
 
-    private Map<Integer, DeLinkedNode> cache = new HashMap<Integer, DeLinkedNode>();
+    Map<Integer, DeLinkedNode> cache = new HashMap<Integer, DeLinkedNode>();
     private int size;
     private int capacity;
     private DeLinkedNode head;
@@ -38,8 +37,8 @@ public class LRUCache {
     public LRUCache(int capacity) {
         this.size = 0;
         this.capacity = capacity;
-        head = new DeLinkedNode();
-        tail = new DeLinkedNode();
+        this.head = new DeLinkedNode();
+        this.tail = new DeLinkedNode();
         head.next = tail;
         tail.prev = head;
     }

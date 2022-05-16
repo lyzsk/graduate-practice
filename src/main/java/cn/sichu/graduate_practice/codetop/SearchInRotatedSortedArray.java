@@ -18,13 +18,13 @@ public class SearchInRotatedSortedArray {
                 return mid;
             }
             if (nums[0] <= nums[mid]) {
-                if (nums[0] <= target && target < nums[mid]) {
+                if (nums[0] <= target && target <= nums[mid]) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
             } else {
-                if (nums[mid] < target && target <= nums[nums.length - 1]) {
+                if (nums[mid] <= target && target <= nums[nums.length - 1]) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;
