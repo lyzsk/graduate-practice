@@ -7,7 +7,6 @@ package cn.sichu.graduate_practice.offer;
  * @date 2022/05/16
  */
 public class Offer13 {
-
     public int movingCount(int m, int n, int k) {
         boolean[][] visited = new boolean[m][n];
         return dfs(m, n, k, visited, 0, 0);

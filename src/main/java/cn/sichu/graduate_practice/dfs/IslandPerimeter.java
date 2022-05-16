@@ -7,30 +7,29 @@ package cn.sichu.graduate_practice.dfs;
  * @date 2022/05/14
  */
 public class IslandPerimeter {
-    public int islandPerimeterSolution1(int[][] grid) {
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[0].length; col++) {
-                if (grid[row][col] == 1) {
-                    return dfs(grid, row, col);
+    public int islandPerimeter(int[][] grid) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    return dfs(grid, i, j);
                 }
             }
         }
         return 0;
     }
 
-    private static int dfs(int[][] grid, int row, int col) {
-        if (!(0 <= row && row < grid.length && 0 <= col && col < grid[0].length)) {
+    private static int dfs(int[][] grid, int i, int j) {
+        if (i < 0 || j < 0 || i > grid.length - 1 || j > grid[0].length - 1) {
             return 1;
         }
-        if (grid[row][col] == 0) {
+        if (grid[i][j] == 0) {
             return 1;
         }
-        if (grid[row][col] != 1) {
+        if (grid[i][j] != 1) {
             return 0;
         }
-        grid[row][col] = -1;
-
-        return dfs(grid, row - 1, col) + dfs(grid, row + 1, col) + dfs(grid, row, col + 1) + dfs(grid, row, col - 1);
+        grid[i][j] = -1;
+        return dfs(grid, i - 1, j) + dfs(grid, i + 1, j) + dfs(grid, i, j - 1) + dfs(grid, i, j + 1);
     }
 
     private static int[] dx = {0, 1, 0, -1};
