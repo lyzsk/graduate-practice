@@ -14,11 +14,10 @@ public class CountSubIslands {
      * @param grid2
      * @return
      */
-    private boolean flag;
+    private static boolean flag;
 
     public int countSubIslands(int[][] grid1, int[][] grid2) {
         int res = 0;
-
         for (int i = 0; i < grid2.length; i++) {
             for (int j = 0; j < grid2[0].length; j++) {
                 if (grid2[i][j] == 1) {
@@ -33,7 +32,7 @@ public class CountSubIslands {
         return res;
     }
 
-    private void dfs(int[][] grid1, int[][] grid2, int x, int y) {
+    private static void dfs(int[][] grid1, int[][] grid2, int x, int y) {
         if (x < 0 || y < 0 || x > grid2.length - 1 || y > grid2[0].length - 1 || grid2[x][y] == 0) {
             return;
         }
