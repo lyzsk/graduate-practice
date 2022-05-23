@@ -16,7 +16,7 @@ public class CodeTop0061 {
      * 
      * @param num1
      * @param num2
-     * @return
+     * @return res
      */
     public String multiply(String num1, String num2) {
         if ("0".equals(num1) || "0".equals(num2)) {
