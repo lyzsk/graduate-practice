@@ -20,7 +20,6 @@ public class CodeTop0031 {
             --i;
             --j;
         }
-        sb.reverse();
-        return sb.toString();
+        return sb.reverse().toString();
     }
 }
