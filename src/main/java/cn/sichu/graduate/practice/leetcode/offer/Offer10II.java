@@ -1,5 +1,10 @@
 package cn.sichu.graduate.practice.leetcode.offer;
 
+/**
+ * 
+ * @author sichu
+ * @date 2022/05/28
+ */
 public class Offer10II {
     public int numWays(int n) {
         if (n < 2) {

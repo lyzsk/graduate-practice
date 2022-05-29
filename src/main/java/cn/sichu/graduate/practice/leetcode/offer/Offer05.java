@@ -7,23 +7,14 @@ package cn.sichu.graduate.practice.leetcode.offer;
  */
 public class Offer05 {
     public String replaceSpace(String s) {
-        char[] arr = new char[s.length() * 3];
-        int size = 0;
+        StringBuilder res = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch == ' ') {
-                arr[size] = '%';
-                ++size;
-                arr[size] = '2';
-                ++size;
-                arr[size] = '0';
-                ++size;
+            if (s.charAt(i) == ' ') {
+                res.append("%20");
             } else {
-                arr[size] = ch;
-                ++size;
+                res.append(s.charAt(i));
             }
         }
-        String res = new String(arr, 0, size);
-        return res;
+        return res.toString();
     }
 }
