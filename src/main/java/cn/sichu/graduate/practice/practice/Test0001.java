@@ -1,5 +1,9 @@
 package cn.sichu.graduate.practice.practice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 字节面试题: 数组A中给定可以使用的1~9的数，返回由A数组中的元素组成的小于n的最大数。例如A={1, 2, 4, 9}，n=2533，返回2499
  * 
@@ -71,5 +75,17 @@ public class Test0001 {
         int n = 2533;
         int res = returnMax(A, n);
         System.out.print(res);
+        // int a = 1;
+        // int b = 0;
+        // int c = a / b;
+        // System.out.print(c);
+
+        List<String> list = new ArrayList<String>(Arrays.asList("a", "b", "c"));
+        for (String value : list) {
+            if (value.equals("a")) {
+                list.remove(value);
+            }
+        }
+        System.out.println(list);
     }
 }
