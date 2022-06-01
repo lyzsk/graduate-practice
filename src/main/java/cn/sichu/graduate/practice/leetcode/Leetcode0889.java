@@ -1,7 +1,5 @@
 package cn.sichu.graduate.practice.leetcode;
 
-import java.util.Arrays;
-
 import cn.sichu.graduate.practice.leetcode.utils.TreeNode;
 
 /**
@@ -11,32 +9,28 @@ import cn.sichu.graduate.practice.leetcode.utils.TreeNode;
  */
 public class Leetcode0889 {
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
-        if (preorder == null || preorder.length == 0) {
-            return null;
-        }
-        return dfs(preorder, postorder);
+        return buildTree(preorder, 0, preorder.length - 1, postorder, 0, postorder.length - 1);
     }
 
-    private static TreeNode dfs(int[] preorder, int[] postorder) {
-        if (preorder == null || preorder.length == 0) {
+    private static TreeNode buildTree(int[] preorder, int preLeft, int preRight, int[] postorder, int postLeft,
+        int postRight) {
+        if (preLeft > preRight) {
             return null;
         }
-        if (preorder.length == 1) {
-            return new TreeNode(preorder[0]);
+        TreeNode node = new TreeNode(preorder[preLeft]);
+        if (preLeft == preRight) {
+            return node;
         }
-        TreeNode node = new TreeNode(preorder[0]);
-        for (int i = 0; i < postorder.length; i++) {
-            if (preorder[1] == postorder[i]) {
-                int leftCount = i + 1;
-                int[] preLeft = Arrays.copyOfRange(preorder, 1, leftCount + 1);
-                int[] preRight = Arrays.copyOfRange(preorder, leftCount + 1, preorder.length);
-                int[] postLeft = Arrays.copyOfRange(postorder, 0, leftCount);
-                int[] postRight = Arrays.copyOfRange(postorder, leftCount, preorder.length - 1);
-                node.left = dfs(preLeft, postLeft);
-                node.right = dfs(preRight, postRight);
+        int index = 0;
+        for (int i = postLeft; i <= postRight; i++) {
+            if (postorder[i] == preorder[preLeft + 1]) {
+                index = i;
                 break;
             }
         }
+        node.left = buildTree(preorder, preLeft + 1, preLeft + 1 + index - postLeft, postorder, postLeft, index);
+        node.right =
+            buildTree(preorder, preLeft + 1 + index - postLeft + 1, preRight, postorder, index + 1, postRight - 1);
         return node;
     }
 }

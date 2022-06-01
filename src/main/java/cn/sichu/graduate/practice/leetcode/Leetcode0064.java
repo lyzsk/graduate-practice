@@ -1,6 +1,8 @@
-package cn.sichu.graduate.practice.leetcode.offer;
+package cn.sichu.graduate.practice.leetcode;
 
 /**
+ * 因为这题，求的是 最短路径和， 别用[m+1][n+1]为边界的，因为再Math.min()的过程中会取到虚拟边界的0，要写条件判断的话也特麻烦， 尝试了下没写出来也没搜到...建议以后都用[m][n]边界判断
+ * <p>
  * 类似的题: Offer47, Leetcode0064, Leetcode1143, Leetcode0221
  * <p>
  * 都是既可以选择，{@code int[][] dp = new int[m][n]} 和 {@code int[][] dp = new int[m + 1][n + 1]}
@@ -14,8 +16,8 @@ package cn.sichu.graduate.practice.leetcode.offer;
  * @author sichu
  * @date 2022/05/30
  */
-public class Offer47 {
-    public int maxValue(int[][] grid) {
+public class Leetcode0064 {
+    public int minPathSum(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return 0;
         }
@@ -31,20 +33,9 @@ public class Offer47 {
         }
         for (int i = 1; i < rows; i++) {
             for (int j = 1; j < cols; j++) {
-                dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
             }
         }
         return dp[rows - 1][cols - 1];
     }
-    // public int maxValue(int[][] grid) {
-    // int m = grid.length;
-    // int n = grid[0].length;
-    // int[][] dp = new int[m + 1][n + 1];
-    // for (int i = 1; i <= m; i++) {
-    // for (int j = 1; j <= n; j++) {
-    // dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
-    // }
-    // }
-    // return dp[m][n];
-    // }
 }

@@ -2,6 +2,7 @@ package cn.sichu.graduate.practice.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
@@ -12,12 +13,13 @@ import java.util.List;
  * 
  * 
  * @author sichu
- * @date 2022/05/25
+ * @date 2022/05/30
  */
-public class Leetcode0078 {
-    public List<List<Integer>> subsets(int[] nums) {
+public class Leetcode0090 {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Deque<Integer> path = new ArrayDeque<Integer>();
+        Arrays.sort(nums);
         backtrack(res, path, nums, 0);
         return res;
     }
@@ -28,6 +30,9 @@ public class Leetcode0078 {
             path.add(nums[i]);
             backtrack(res, path, nums, i + 1);
             path.removeLast();
+            while (i < nums.length - 1 && nums[i] == nums[i + 1]) {
+                ++i;
+            }
         }
     }
 }

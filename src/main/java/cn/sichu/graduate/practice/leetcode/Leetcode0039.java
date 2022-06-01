@@ -12,21 +12,28 @@ import java.util.List;
  * 
  * 
  * @author sichu
- * @date 2022/05/25
+ * @date 2022/05/30
  */
-public class Leetcode0078 {
-    public List<List<Integer>> subsets(int[] nums) {
+public class Leetcode0039 {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Deque<Integer> path = new ArrayDeque<Integer>();
-        backtrack(res, path, nums, 0);
+        backtrack(res, path, candidates, target, 0);
         return res;
     }
 
-    private static void backtrack(List<List<Integer>> res, Deque<Integer> path, int[] nums, int startIndex) {
-        res.add(new ArrayList<>(path));
-        for (int i = startIndex; i < nums.length; i++) {
-            path.add(nums[i]);
-            backtrack(res, path, nums, i + 1);
+    private static void backtrack(List<List<Integer>> res, Deque<Integer> path, int[] candidates, int target,
+        int startIndex) {
+        if (target < 0) {
+            return;
+        }
+        if (target == 0) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = startIndex; i < candidates.length; i++) {
+            path.add(candidates[i]);
+            backtrack(res, path, candidates, target - candidates[i], i);
             path.removeLast();
         }
     }

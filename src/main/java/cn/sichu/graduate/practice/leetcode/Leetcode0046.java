@@ -12,21 +12,30 @@ import java.util.List;
  * 
  * 
  * @author sichu
- * @date 2022/05/25
+ * @date 2022/05/30
  */
-public class Leetcode0078 {
-    public List<List<Integer>> subsets(int[] nums) {
+public class Leetcode0046 {
+    public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         Deque<Integer> path = new ArrayDeque<Integer>();
-        backtrack(res, path, nums, 0);
+        boolean[] used = new boolean[nums.length];
+        backtrack(res, path, nums, used, 0);
         return res;
     }
 
-    private static void backtrack(List<List<Integer>> res, Deque<Integer> path, int[] nums, int startIndex) {
-        res.add(new ArrayList<>(path));
-        for (int i = startIndex; i < nums.length; i++) {
+    private static void backtrack(List<List<Integer>> res, Deque<Integer> path, int[] nums, boolean[] used, int depth) {
+        if (depth == nums.length) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            used[i] = true;
             path.add(nums[i]);
-            backtrack(res, path, nums, i + 1);
+            backtrack(res, path, nums, used, depth + 1);
+            used[i] = false;
             path.removeLast();
         }
     }
