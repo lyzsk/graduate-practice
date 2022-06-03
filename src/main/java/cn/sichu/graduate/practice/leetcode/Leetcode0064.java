@@ -3,7 +3,7 @@ package cn.sichu.graduate.practice.leetcode;
 /**
  * 因为这题，求的是 最短路径和， 别用[m+1][n+1]为边界的，因为再Math.min()的过程中会取到虚拟边界的0，要写条件判断的话也特麻烦， 尝试了下没写出来也没搜到...建议以后都用[m][n]边界判断
  * <p>
- * 类似的题: Offer47, Leetcode0064, Leetcode1143, Leetcode0221
+ * 类似的题: Leetcode0064, Leetcode1143, Leetcode0221, Leetcode1277
  * <p>
  * 都是既可以选择，{@code int[][] dp = new int[m][n]} 和 {@code int[][] dp = new int[m + 1][n + 1]}
  * <p>

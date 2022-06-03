@@ -1,7 +1,7 @@
 package cn.sichu.graduate.practice.leetcode;
 
 /**
- * 类似的题: Offer47, Leetcode0064, Leetcode1143, Leetcode0221
+ * 类似的题: Leetcode0064, Leetcode1143, Leetcode0221, Leetcode1277
  * <p>
  * 都是既可以选择，{@code int[][] dp = new int[m][n]} 和 {@code int[][] dp = new int[m + 1][n + 1]}
  * <p>

@@ -5,7 +5,7 @@ package cn.sichu.graduate.practice.leetcode;
  * <p>
  * 所以要用 Math.min() 判断 left, top, corner 的最小值， 这里的最小意味着可行性; 然后再用 maxSide 再次 Math.max() 判断全局最大值
  * <p>
- * 类似的题: Offer47, Leetcode0064, Leetcode1143, Leetcode0221
+ * 类似的题: Leetcode0064, Leetcode1143, Leetcode0221, Leetcode1277
  * <p>
  * 都是既可以选择，{@code int[][] dp = new int[m][n]} 和 {@code int[][] dp = new int[m + 1][n + 1]}
  * <p>
