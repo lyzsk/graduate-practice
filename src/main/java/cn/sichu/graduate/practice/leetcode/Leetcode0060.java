@@ -30,9 +30,9 @@ public class Leetcode0060 {
      * @return path.toString()
      */
     public String getPermutation(int n, int k) {
+        StringBuilder path = new StringBuilder();
         int[] factorial = calculateFactorial(n);
         boolean[] used = new boolean[n + 1];
-        StringBuilder path = new StringBuilder();
         backtrack(path, factorial, used, n, k, 0);
         return path.toString();
     }

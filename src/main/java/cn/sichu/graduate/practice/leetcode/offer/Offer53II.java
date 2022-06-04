@@ -6,6 +6,15 @@ package cn.sichu.graduate.practice.leetcode.offer;
  * @date 2022/05/24
  */
 public class Offer53II {
+    // public int missingNumber(int[] nums) {
+    // for (int i = 0; i < nums.length; i++) {
+    // if (nums[i] != i) {
+    // return i;
+    // }
+    // }
+    // return nums.length;
+    // }
+
     public int missingNumber(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
