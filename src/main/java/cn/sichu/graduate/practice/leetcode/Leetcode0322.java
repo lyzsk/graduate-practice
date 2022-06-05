@@ -10,6 +10,10 @@ import java.util.Arrays;
  * memo[n]: 表示凑成总金额为 n 所需的最少硬币个数
  * <p>
  * 注意Arrays.fill(memo, amount + 1);，别 fill 了 Integer.MAX_VALUE,因为测试用例 conins = [2], amount = 3 这种的通过不了
+ * <p>
+ * 0-1背包： Leetcode0416, Leetcode0474, Leetcode0494, Leetcode0879, Leetcode1049
+ * <p>
+ * 完全背包： Leetcode0322, Leetcode0518, Leetcode1449, Leetcode0279
  * 
  * @author sichu
  * @date 2022/06/04
