@@ -1,11 +1,14 @@
-package cn.sichu.graduate.practice.codetop.backend;
+package cn.sichu.graduate.practice.leetcode;
 
 /**
+ * 动态规划做法，相似于最长公共子序列： Leetcode1143,
+ * <p>
+ * 区别在于这题是连续的子数组，只要看corner就可以了，否则为0
  * 
  * @author sichu
- * @date 2022/05/24
+ * @date 2022/06/05
  */
-public class CodeTop0085 {
+public class Leetcode0718 {
     public int findLength(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
