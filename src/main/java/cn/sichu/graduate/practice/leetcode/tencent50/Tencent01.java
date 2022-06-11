@@ -3,7 +3,6 @@ package cn.sichu.graduate.practice.leetcode.tencent50;
 import cn.sichu.graduate.practice.leetcode.utils.ListNode;
 
 /**
- * 123
  * 
  * @author sichu
  * @date 2022/06/11
