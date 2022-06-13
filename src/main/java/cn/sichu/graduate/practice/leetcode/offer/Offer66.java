@@ -7,7 +7,7 @@ package cn.sichu.graduate.practice.leetcode.offer;
  */
 public class Offer66 {
     public int[] constructArr(int[] a) {
-        if (a.length == 0) {
+        if (a == null || a.length == 0) {
             return new int[0];
         }
         int[] b = new int[a.length];
