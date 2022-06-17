@@ -17,24 +17,28 @@ public class Offer67 {
                 return 0;
             }
         }
+        int start = i;
         int sign = 1;
-        if (str.charAt(i) == '-') {
-            sign = -1;
-        }
-        if (str.charAt(i) == '-' || str.charAt(i) == '+') {
-            ++i;
-        }
         int res = 0;
         for (; i < str.length(); i++) {
-            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
+            if (i == start && str.charAt(i) == '+') {
+                sign = 1;
+            } else if (i == start && str.charAt(i) == '-') {
+                sign = -1;
+            } else if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                if (res > Integer.MAX_VALUE / 10
+                    || (res == Integer.MAX_VALUE / 10 && str.charAt(i) - '0' > Integer.MAX_VALUE % 10)) {
+                    return Integer.MAX_VALUE;
+                }
+                if (res < Integer.MIN_VALUE / 10
+                    || (res == Integer.MIN_VALUE / 10 && -(str.charAt(i) - '0') < Integer.MIN_VALUE % 10)) {
+                    return Integer.MIN_VALUE;
+                }
+                res = res * 10 + sign * (str.charAt(i) - '0');
+            } else {
                 break;
             }
-            if (res > Integer.MAX_VALUE / 10
-                || (res == Integer.MAX_VALUE / 10 && str.charAt(i) - '0' > Integer.MAX_VALUE % 10)) {
-                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }
-            res = res * 10 + (str.charAt(i) - '0');
         }
-        return sign * res;
+        return res;
     }
 }
