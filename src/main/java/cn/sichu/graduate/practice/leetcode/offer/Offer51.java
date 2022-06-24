@@ -5,39 +5,53 @@ package cn.sichu.graduate.practice.leetcode.offer;
  * @date 2022/06/20
  */
 public class Offer51 {
-    private int[] nums;
-    private int[] tmp;
+    private int count;
 
     public int reversePairs(int[] nums) {
-        this.nums = nums;
-        this.tmp = new int[nums.length];
-        return mergeSort(0, nums.length - 1);
+        this.count = 0;
+        mergeSort(nums, 0, nums.length - 1);
+        return count;
     }
 
-    private int mergeSort(int left, int right) {
+    private void mergeSort(int[] nums, int left, int right) {
         if (left >= right) {
-            return 0;
+            return;
         }
         int mid = (left + right) >> 1;
-        int res = mergeSort(left, mid) + mergeSort(mid + 1, right);
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        merge(nums, left, mid, right);
+    }
+
+    private void merge(int[] nums, int left, int mid, int right) {
+        int[] tmp = new int[right - left + 1];
         int i = left;
         int j = mid + 1;
-        for (int k = left; k <= right; k++) {
-            tmp[k] = nums[k];
-        }
-        for (int k = left; k <= right; k++) {
-            if (i == mid + 1) {
-                nums[k] = tmp[j];
-                ++j;
-            } else if (j == right + 1 || tmp[i] <= tmp[j]) {
-                nums[k] = tmp[i];
+        int p = 0;
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[p] = nums[i];
+                ++p;
                 ++i;
             } else {
-                nums[k] = tmp[j];
+                count += mid - i + 1;
+                tmp[p] = nums[j];
+                ++p;
                 ++j;
-                res += mid - i + 1;
             }
         }
-        return res;
+        while (i <= mid) {
+            tmp[p] = nums[i];
+            ++p;
+            ++i;
+        }
+        while (j <= right) {
+            tmp[p] = nums[j];
+            ++p;
+            ++j;
+        }
+        for (int k = 0; k < tmp.length; k++) {
+            nums[left + k] = tmp[k];
+        }
     }
 }
