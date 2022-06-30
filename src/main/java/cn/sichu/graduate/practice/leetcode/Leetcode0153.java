@@ -5,7 +5,7 @@ package cn.sichu.graduate.practice.leetcode;
  * @author sichu
  * @date 2022/05/26
  */
-public class Leetcode0154 {
+public class Leetcode0153 {
     public int findMin(int[] nums) {
         int left = 0;
         int right = nums.length - 1;

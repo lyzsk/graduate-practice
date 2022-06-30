@@ -14,8 +14,13 @@ public class OfferII004 {
         for (int num : nums) {
             freq.put(num, freq.getOrDefault(num, 0) + 1);
         }
-        int[] res = freq.entrySet().stream().sorted((o1, o2) -> o1.getValue() - o2.getValue()).limit(1)
-            .mapToInt(Map.Entry::getKey).toArray();
-        return res[0];
+        int res = 0;
+        for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
+            if (entry.getValue() == 1) {
+                res = entry.getKey();
+                break;
+            }
+        }
+        return res;
     }
 }
