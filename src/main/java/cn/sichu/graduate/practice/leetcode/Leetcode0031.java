@@ -9,17 +9,32 @@ package cn.sichu.graduate.practice.leetcode;
  * @date 2022/05/25
  */
 public class Leetcode0031 {
+    // public void nextPermutation(int[] nums) {
+    // for (int fast = nums.length - 1; fast >= 0; fast--) {
+    // for (int slow = nums.length - 1; slow > fast; slow--) {
+    // if (nums[fast] < nums[slow]) {
+    // swap(nums, fast, slow);
+    // reverse(nums, fast + 1);
+    // return;
+    // }
+    // }
+    // }
+    // reverse(nums, 0);
+    // }
+
     public void nextPermutation(int[] nums) {
-        for (int fast = nums.length - 1; fast >= 0; fast--) {
-            for (int slow = nums.length - 1; slow > fast; slow--) {
-                if (nums[fast] < nums[slow]) {
-                    swap(nums, fast, slow);
-                    reverse(nums, fast + 1);
-                    return;
-                }
-            }
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
         }
-        reverse(nums, 0);
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[i] >= nums[j]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+        reverse(nums, i + 1);
     }
 
     private static void swap(int[] nums, int left, int right) {
